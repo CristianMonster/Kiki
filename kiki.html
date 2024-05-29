@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiki aceitas?</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        text-align: center;
+    }
+    .buttons {
+        margin-top: 20px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+    }
+    .btn-nao {
+        position: absolute;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1 class="title">Kiki namorarias comigo?</h1>
+        <div class="buttons">
+            <button class="btn" onclick="alert('Casaremos!')">Sim</button>
+            <button class="btn btn-nao" onmouseover="moverBotao()" ontouchstart="moverBotao()">Não</button>
+        </div>
+    </div>
+
+    <script>
+        function moverBotao(){
+            const btn = document.querySelector('.btn-nao')
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            const buttonRect = btn.getBoundingClientRect();
+            const x = Math.random() * (containerRect.width - buttonRect.width);
+            const y = Math.random() * (containerRect.height - buttonRect.height);
+           
+            btn.style.left = `${x}px`;
+            btn.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
